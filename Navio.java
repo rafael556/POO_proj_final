@@ -45,7 +45,7 @@ public class Navio extends Embarcacao {
     }
 
     public void setPropulsao(String propulsao) throws BlankStringException{
-        if(propulsao.isBlank() || propulsao.equals(null)){
+        if(propulsao.isEmpty() || propulsao.equals(null)){
             throw new BlankStringException();
         }
         this.propulsao = propulsao;

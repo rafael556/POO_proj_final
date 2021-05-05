@@ -32,7 +32,7 @@ public abstract class Embarcacao{
 
     //setters
     public void setNome(String nome) throws BlankStringException{
-        if(nome.isBlank() || nome.equals(null)){
+        if(nome.isEmpty() || nome.equals(null)){
             throw new BlankStringException();
         }
         else
@@ -40,7 +40,7 @@ public abstract class Embarcacao{
     }
 
     public final void setTipo(String tipo) throws BlankStringException{
-        if(tipo.isBlank() || tipo.equals(null)){
+        if(tipo.isEmpty() || tipo.equals(null)){
             throw new BlankStringException();
         }
         else

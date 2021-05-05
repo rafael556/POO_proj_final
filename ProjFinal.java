@@ -19,24 +19,43 @@ public class ProjFinal {
                     Navio navio = new Navio();
     
                     //entradas
-                    navio.setNome(input.entDados("\nDigite o nome do Navio:"));
-                    navio.setTipo(input.entDados("Digite o tipo do navio:"));
+                    try{
+                        navio.setNome(input.entDados("\nDigite o nome do Navio:"));
+                    }
+                    catch(BlankStringException bse){
+                        bse.impBlank();
+                        bse.consertaNome(navio);
+                    }
+
+                    try{
+                        navio.setTipo(input.entDados("Digite o tipo do navio:"));
+                    }
+                    catch(BlankStringException bse){
+                        bse.impBlank();
+                        bse.consertaTipo(navio);
+                    }
 
                     while(true){
                         try{
-                            navio.setTripulacao(Integer.parseInt(input.entDados("Digite o numero de tripulacao:")));
+                            navio.setTripulacao(Integer.parseInt(input.entDados("Digite o numero de tripulantes:")));
                             break;
                         }
                         catch(NumNegatException nne){
                             nne.impNNE();
                         }
                         catch(NumberFormatException nfe){
-                            System.out.println("\nDigite um numero");
+                            System.out.println("\nDigite um numero"); 
                         }
                     }
                     
-                    navio.setPropulsao(input.entDados("Digite o tipo de propulsao:"));
-                    
+                    try{
+                        navio.setPropulsao(input.entDados("Digite o tipo de propulsao:"));
+                    }
+                    catch(BlankStringException bse){
+                        bse.impBlank();
+                        bse.consertaPropulsao(navio);
+                    }   
+
                     while(true){
                         try {
                             navio.setComprimento(Double.parseDouble(input.entDados("Digite o comprimento do navio em metros:")));
@@ -71,13 +90,25 @@ public class ProjFinal {
                     Veleiro veleiro = new Veleiro();
     
                     //entradas
-                    veleiro.setNome(input.entDados("\nDigite o nome do veleiro:"));
+                    try{
+                        veleiro.setNome(input.entDados("\nDigite o nome do veleiro:"));
+                    }
+                    catch(BlankStringException bse){
+                        bse.impBlank();
+                        bse.consertaNome(veleiro);
+                    }
                     
-                    veleiro.setTipo(input.entDados("Digite o tipo do veleiro:"));
+                    try{
+                        veleiro.setTipo(input.entDados("Digite o tipo do veleiro:"));
+                    }
+                    catch(BlankStringException bse){
+                        bse.impBlank();
+                        bse.consertaTipo(veleiro);
+                    }
 
                     while(true){
                         try {
-                            veleiro.setTripulacao(Integer.parseInt(input.entDados("Digite o numero de tripulacao:")));
+                            veleiro.setTripulacao(Integer.parseInt(input.entDados("Digite o numero de tripulantes:")));
                             break;
                         }
                         catch(NumNegatException nne){
@@ -151,9 +182,22 @@ public class ProjFinal {
                     JetSki jetski = new JetSki();
     
                     //entradas
-                    jetski.setNome(input.entDados("\nDigite o nome do jetski:"));
 
-                    jetski.setTipo(input.entDados("Digite o tipo do jetski:"));
+                    try{
+                        jetski.setNome(input.entDados("\nDigite o nome do jetski:"));
+                    }
+                    catch(BlankStringException bse){
+                        bse.impBlank();
+                        bse.consertaNome(jetski);
+                    }
+                    
+                    try{
+                        jetski.setTipo(input.entDados("Digite o tipo do jetski:"));
+                    }
+                    catch(BlankStringException bse){
+                        bse.impBlank();
+                        bse.consertaTipo(jetski);
+                    }
 
                     while(true){
                         try {

@@ -31,12 +31,20 @@ public abstract class Embarcacao{
     }
 
     //setters
-    public void setNome(String nome){
-        this.nome = nome;
+    public void setNome(String nome) throws BlankStringException{
+        if(nome.isBlank() || nome.equals(null)){
+            throw new BlankStringException();
+        }
+        else
+            this.nome = nome;
     }
 
-    public final void setTipo(String tipo){
-        this.tipo = tipo;
+    public final void setTipo(String tipo) throws BlankStringException{
+        if(tipo.isBlank() || tipo.equals(null)){
+            throw new BlankStringException();
+        }
+        else
+            this.tipo = tipo;
     }
 
     public final void setTripulacao(int tripulacao) throws NumNegatException{
@@ -56,5 +64,4 @@ public abstract class Embarcacao{
             throw new NumNegatException();
         }
     }
-
 }

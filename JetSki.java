@@ -5,6 +5,7 @@ public class JetSki extends Embarcacao implements Autonomia{
     //atributos
     private double potencia;
     private double eficiencia; //combustivel/hora
+    Leitura input = new Leitura();
 
     //métodos
     public double autonomia(){ 
@@ -31,6 +32,67 @@ public class JetSki extends Embarcacao implements Autonomia{
         System.out.println("Potencia: "+getPotencia()+" HP");
         System.out.println("Eficiencia: "+getEficiencia()+" litros/h");
         System.out.println("autonomia: "+getAutonomia());
+    }
+
+    public JetSki setJetSki(JetSki jetski){
+        try{
+            jetski.setNome(input.entDados("\nDigite o nome do jetski:"));
+        }
+        catch(BlankStringException bse){
+            bse.impBlank();
+            bse.consertaNome(jetski);
+        }
+        
+        try{
+            jetski.setTipo(input.entDados("Digite o tipo do jetski:"));
+        }
+        catch(BlankStringException bse){
+            bse.impBlank();
+            bse.consertaTipo(jetski);
+        }
+
+        while(true){
+            try {
+                jetski.setCapacidade(Double.parseDouble(input.entDados("Digite a capacidade do tanque de combustivel:")));
+                break;
+            }
+            catch(NumNegatException nne){
+                nne.impNNE();
+            }
+            catch(SupCapacidade SPC){
+                SPC.impJscp();
+            }
+            catch(NumberFormatException nfe){
+                System.out.println("\nDigite um numero");
+            }
+        }
+
+        while(true){
+            try {
+                jetski.setPotencia(Double.parseDouble(input.entDados("Digite a potencia do jetski em HP: ")));
+                break;
+            }
+            catch(NumNegatException nne){
+                nne.impNNE();
+            }
+            catch(NumberFormatException nfe){
+                System.out.println("\nDigite um numero");
+            }
+        }
+        
+        while(true){
+            try {
+                jetski.setEficiencia(Double.parseDouble(input.entDados("Digite a eficiencia de litros/h do jetski: ")));
+                break;
+            }
+            catch(NumNegatException nne){
+                nne.impNNE();
+            }
+            catch(NumberFormatException nfe){
+                System.out.println("\nDigite um numero");
+            }
+        }
+        return jetski;
     }
         
     //getters

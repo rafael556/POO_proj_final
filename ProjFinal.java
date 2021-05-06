@@ -1,249 +1,198 @@
 //Aluno: Rafael Cruz - RA: 2266261
 
+import java.util.List;
+import java.util.ArrayList;
+
 public class ProjFinal {
+
+    //listas de objetos 
+    
+    private List <Veleiro> bdVel = new ArrayList<Veleiro>();
+    private List <JetSki> bdJet = new ArrayList<JetSki>();
+
+     //método de cadastro de navio
+    //  public Navio cadastroNavio(Navio navio){
+    //     navio = navio.setNavio(navio);
+
+    //     bdNav.add(navio);
+    //     return navio;
+    // }
     public static void main(String arg[]){
         Leitura input = new Leitura();
+        boolean opcao = true;
 
         while(true){
 
             int decisao = 0;
     
-            System.out.println("Escolha 1 para criar um navio");
-            System.out.println("Escolha 2 para criar um veleiro");
-            System.out.println("Escolha 3 para criar um jet ski");
+            System.out.println("\n1 -  Editar navios");
+            System.out.println("2 -  Editar veleiros");
+            System.out.println("3 -  Editar jet skis");
             
             decisao = Integer.parseInt(input.entDados(""));
-    
+            
             switch(decisao){
                 case 1:
+                    opcao = true;
                     Navio navio = new Navio();
-    
-                    //entradas
-                    try{
-                        navio.setNome(input.entDados("\nDigite o nome do Navio:"));
-                    }
-                    catch(BlankStringException bse){
-                        bse.impBlank();
-                        bse.consertaNome(navio);
-                    }
 
-                    try{
-                        navio.setTipo(input.entDados("Digite o tipo do navio:"));
-                    }
-                    catch(BlankStringException bse){
-                        bse.impBlank();
-                        bse.consertaTipo(navio);
-                    }
-
-                    while(true){
-                        try{
-                            navio.setTripulacao(Integer.parseInt(input.entDados("Digite o numero de tripulantes:")));
-                            break;
+                    while(opcao){
+                        //opções do submenu principal de Navio
+                        System.out.println("\n1 - Cadastrar Navio");
+                        System.out.println("2 - Listar Navios");
+                        System.out.println("3 - Consultar Navio pelo codigo");
+                        System.out.println("4 - Remover Navio pelo codigo");
+                        System.out.println("5 - Atualizar dados de Navio pelo codigo");
+                        System.out.println("6 - Sair do menu Navios");
+                        
+                        while(true){
+                            try{
+                                decisao = Integer.parseInt(input.entDados(""));
+                                break;
+                            }
+                            catch(NumberFormatException nfe){
+                                System.out.println("A entrada deve ser um inteiro de 1 a 6!");
+                            }
                         }
-                        catch(NumNegatException nne){
-                            nne.impNNE();
-                        }
-                        catch(NumberFormatException nfe){
-                            System.out.println("\nDigite um numero"); 
-                        }
-                    }
                     
-                    try{
-                        navio.setPropulsao(input.entDados("Digite o tipo de propulsao:"));
+                        //submenu de Navio
+                        switch(decisao){
+                            case 1:
+                                
+                                navio = navio.setNavio(navio);
+                                break;
+                            case 2:
+                               
+                                navio.getNavio();
+                                break;  
+                            case 3:
+                                
+                                break;  
+                            case 4:
+                                
+                                break;  
+                            case 5:
+                                
+                                break;  
+                            case 6:
+                                opcao = false;
+                                break;  
+                            default:
+                                System.out.println("Erro");
+                                break;  
+                        }
+                        //break;
                     }
-                    catch(BlankStringException bse){
-                        bse.impBlank();
-                        bse.consertaPropulsao(navio);
-                    }   
-
-                    while(true){
-                        try {
-                            navio.setComprimento(Double.parseDouble(input.entDados("Digite o comprimento do navio em metros:")));
-                            break;
-                        }
-                        catch(NumNegatException nne){
-                            nne.impNNE();
-                        }
-                        catch(NumberFormatException nfe){
-                            System.out.println("\nDigite um numero");
-                        }
-                    }
-    
-                    while(true){
-                        try {
-                            navio.setVelocidade(Double.parseDouble(input.entDados("Digite a velocidade em nos: ")));    
-                            break;
-                        } 
-                        catch(NumNegatException nne){
-                            nne.impNNE();
-                        }
-                        catch(NumberFormatException nfe){
-                            System.out.println("\nDigite um numero");
-                        }
-                    }
-                    
                     //saidas
-                    navio.getNavio();
+                    // navio.getNavio();
                     break;
     
                 case 2:
-                    Veleiro veleiro = new Veleiro();
-    
-                    //entradas
-                    try{
-                        veleiro.setNome(input.entDados("\nDigite o nome do veleiro:"));
-                    }
-                    catch(BlankStringException bse){
-                        bse.impBlank();
-                        bse.consertaNome(veleiro);
-                    }
                     
-                    try{
-                        veleiro.setTipo(input.entDados("Digite o tipo do veleiro:"));
-                    }
-                    catch(BlankStringException bse){
-                        bse.impBlank();
-                        bse.consertaTipo(veleiro);
-                    }
-
-                    while(true){
-                        try {
-                            veleiro.setTripulacao(Integer.parseInt(input.entDados("Digite o numero de tripulantes:")));
-                            break;
-                        }
-                        catch(NumNegatException nne){
-                            nne.impNNE();
-                        }
-                        catch(NumberFormatException nfe){
-                            System.out.println("\nDigite um numero");
-                        }
-                    }
-
-                    while(true){
-                        try {
-                            veleiro.setComprimento(Double.parseDouble(input.entDados("Digite o comprimento do veleiro em metros:")));
-                            break;
-                        }
-                        catch(NumNegatException nne){
-                            nne.impNNE();
-                        }
-                        catch(NumberFormatException nfe){
-                            System.out.println("\nDigite um numero");
-                        }
-                    }
-
-                    while(true){
-                        try {
-                            veleiro.setMastros(Integer.parseInt(input.entDados("Digite o numero de mastros:")));
-                            break;
-                        }
-                        catch(NumNegatException nne){
-                            nne.impNNE();
-                        }
-                        catch(NumberFormatException nfe){
-                            System.out.println("\nDigite um numero");
-                        }
-                    }
-
-                    while(true){
-                        try {
-                            veleiro.setVelas(Integer.parseInt(input.entDados("Digite o numero de velas:")));
-                            break;
-                        }
-                        catch(NumNegatException nne){
-                            nne.impNNE();
-                        }
-                        catch(NumberFormatException nfe){
-                            System.out.println("\nDigite um numero");
-                        }
-                    }
-
-                    while(true){
-                        try {
-                            veleiro.setCapacidade(Double.parseDouble(input.entDados("Digite a quantidade de suprimentos em kg")));
-                            break;
-                        }
-                        catch(NumNegatException nne){
-                            nne.impNNE();
-                        }
-                        catch(SupCapacidade SPC){
-                            SPC.impSCP();
-                        }
-                        catch(NumberFormatException nfe){
-                            System.out.println("\nDigite um numero");
-                        }
-                    }
-                    
-                    //saidas
-                    veleiro.getVeleiro();
-                    break;
+                    // opcao = true;
+                    // while(true){
+                    //     //opções do submenu principal de Veleiro
+                    //     System.out.println("1 - Cadastrar Veleiro");
+                    //     System.out.println("2 - Listar Veleiros");
+                    //     System.out.println("3 - Consultar Veleiro pelo código");
+                    //     System.out.println("4 - Remover Veleiro pelo código");
+                    //     System.out.println("5 - Atualizar dados de Veleiro pelo código");
+                    //     System.out.println("6 - Sair do menu Veleiros");
+                        
+                    //     while(true){
+                    //         try{
+                    //             decisao = Integer.parseInt(input.entDados(""));
+                    //             break;
+                    //         }
+                    //         catch(NumberFormatException nfe){
+                    //             System.out.println("A entrada deve ser um inteiro de 1 a 6!");
+                    //         }
+                    //     }
+                        
+                    //     while(opcao){
+                    //         //submenu de Veleiro
+                    //         switch(decisao){
+                    //             case 1:
+                    //                 Veleiro veleiro = new Veleiro();
+                                    
+                    //                 break;
+                    //             case 2:
+                                        
+                    //                 break;  
+                    //             case 3:
+                                        
+                    //                 break;  
+                    //             case 4:
+                                        
+                    //                 break;  
+                    //             case 5:
+                                        
+                    //                 break;  
+                    //             case 6:
+                    //                 opcao = false;    
+                    //                 break;  
+                    //             default:
+                                    
+                    //                 break;  
+                    //         }
+                    //     }
+                    //     break;
+                    // }
+                        //saidas
+                        // veleiro.getVeleiro();
+                        // break;
     
                 case 3:
-                    JetSki jetski = new JetSki();
+                    // opcao = true;
+
+                    // while(true){
+                    //     //opções do submenu principal de Jetski
+                    //     System.out.println("1 - Cadastrar Jetski");
+                    //     System.out.println("2 - Listar Jetskis");
+                    //     System.out.println("3 - Consultar Jetski pelo código");
+                    //     System.out.println("4 - Remover Jetski pelo código");
+                    //     System.out.println("5 - Atualizar dados de Jetski pelo código");
+                    //     System.out.println("6 - Sair do menu Jetskis");
+                        
+                    //     while(true){
+                    //         try{
+                    //             decisao = Integer.parseInt(input.entDados(""));
+                    //             break;
+                    //         }
+                    //         catch(NumberFormatException nfe){
+                    //             System.out.println("A entrada deve ser um inteiro de 1 a 6!");
+                    //         }
+                    //     }
+                        
+                    //     while(opcao){
+                    //         //submenu de Jetski
+                    //         switch(decisao){
+                    //             case 1:
+                    //                 JetSki jetski = new JetSki();
     
-                    //entradas
+                    //                 break;
+                    //             case 2:
+                                    
+                    //                 break;  
+                    //             case 3:
+                                    
+                    //                 break;  
+                    //             case 4:
+                                    
+                    //                 break;  
+                    //             case 5:
+                                    
+                    //                 break;  
+                    //             case 6:
+                    //                 opcao = false;
+                    //                 break;  
+                    //             default:
 
-                    try{
-                        jetski.setNome(input.entDados("\nDigite o nome do jetski:"));
-                    }
-                    catch(BlankStringException bse){
-                        bse.impBlank();
-                        bse.consertaNome(jetski);
-                    }
-                    
-                    try{
-                        jetski.setTipo(input.entDados("Digite o tipo do jetski:"));
-                    }
-                    catch(BlankStringException bse){
-                        bse.impBlank();
-                        bse.consertaTipo(jetski);
-                    }
-
-                    while(true){
-                        try {
-                            jetski.setCapacidade(Double.parseDouble(input.entDados("Digite a capacidade do tanque de combustivel:")));
-                            break;
-                        }
-                        catch(NumNegatException nne){
-                            nne.impNNE();
-                        }
-                        catch(SupCapacidade SPC){
-                            SPC.impJscp();
-                        }
-                        catch(NumberFormatException nfe){
-                            System.out.println("\nDigite um numero");
-                        }
-                    }
-
-                    while(true){
-                        try {
-                            jetski.setPotencia(Double.parseDouble(input.entDados("Digite a potencia do jetski em HP: ")));
-                            break;
-                        }
-                        catch(NumNegatException nne){
-                            nne.impNNE();
-                        }
-                        catch(NumberFormatException nfe){
-                            System.out.println("\nDigite um numero");
-                        }
-                    }
-                    
-                    while(true){
-                        try {
-                            jetski.setEficiencia(Double.parseDouble(input.entDados("Digite a eficiencia de litros/h do jetski: ")));
-                            break;
-                        }
-                        catch(NumNegatException nne){
-                            nne.impNNE();
-                        }
-                        catch(NumberFormatException nfe){
-                            System.out.println("\nDigite um numero");
-                        }
-                    }
-
-                    //saidas
-                    jetski.getJetSki();
-                    break;
+                    //                 break;  
+                    //         }
+                    //     }
+                    //     break;
+                    // }
     
                 default:
                     System.out.println("Erro\n");
@@ -251,7 +200,7 @@ public class ProjFinal {
             }
 
             //Menu para recomeço
-            System.out.println("\nDeseja criar outra embarcacao?");
+            System.out.println("\nDeseja editar outro tipo de embarcacao?");
             System.out.println("1 - Sim");
             System.out.println("2 - Nao");
             decisao = Integer.parseInt(input.entDados(""));

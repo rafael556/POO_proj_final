@@ -6,19 +6,12 @@ import java.util.ArrayList;
 public class ProjFinal {
 
     //listas de objetos 
-    
-    private List <Veleiro> bdVel = new ArrayList<Veleiro>();
-    private List <JetSki> bdJet = new ArrayList<JetSki>();
-
-     //método de cadastro de navio
-    //  public Navio cadastroNavio(Navio navio){
-    //     navio = navio.setNavio(navio);
-
-    //     bdNav.add(navio);
-    //     return navio;
-    // }
+    private static Navio navio;
+    private static Veleiro veleiro;
+    private static JetSki jetski;
+    private static Leitura input = new Leitura();
+    private static GerEmb ger = new GerEmb();
     public static void main(String arg[]){
-        Leitura input = new Leitura();
         boolean opcao = true;
 
         while(true){
@@ -34,8 +27,7 @@ public class ProjFinal {
             switch(decisao){
                 case 1:
                     opcao = true;
-                    Navio navio = new Navio();
-
+                    
                     while(opcao){
                         //opções do submenu principal de Navio
                         System.out.println("\n1 - Cadastrar Navio");
@@ -54,25 +46,28 @@ public class ProjFinal {
                                 System.out.println("A entrada deve ser um inteiro de 1 a 6!");
                             }
                         }
-                    
+                        
                         //submenu de Navio
                         switch(decisao){
                             case 1:
-                                
-                                navio = navio.setNavio(navio);
+                                navio = new Navio();
+                                navio = ger.cadastroNavio(navio);
                                 break;
                             case 2:
-                               
-                                navio.getNavio();
+                                System.out.println("\nListagem de pessoas!");
+                                ger.listaNavio();
                                 break;  
                             case 3:
-                                
+                                System.out.println("\nConsulta de Navio por codigo");
+                                navio = new Navio();
                                 break;  
                             case 4:
-                                
+                                System.out.println("\nRemover Navio pelo codigo");
+                                navio = new Navio();
                                 break;  
                             case 5:
-                                
+                                System.out.println("\nAtualizar dados a partir de codigo");
+                                navio = new Navio();
                                 break;  
                             case 6:
                                 opcao = false;
@@ -81,10 +76,7 @@ public class ProjFinal {
                                 System.out.println("Erro");
                                 break;  
                         }
-                        //break;
                     }
-                    //saidas
-                    // navio.getNavio();
                     break;
     
                 case 2:
@@ -216,6 +208,9 @@ public class ProjFinal {
                 break;
             }
         }
-        
     }
+
+    
 }
+
+

@@ -23,14 +23,22 @@ public class ProjFinal {
             System.out.println("2 -  Editar veleiros");
             System.out.println("3 -  Editar jet skis");
             
-            decisao = Integer.parseInt(input.entDados(""));
+            while(true){
+                try{
+                    decisao = Integer.parseInt(input.entDados(""));
+                    break;
+                }
+                catch(NumberFormatException nfe){
+                    System.out.println("A entrada deve ser um inteiro de 1 a 3!");
+                }
+            }
             
             switch(decisao){
                 case 1:
                     opcao = true;
                     
+                    //==============opções do submenu principal de Navio===============
                     while(opcao){
-//==============opções do submenu principal de Navio===============
                         System.out.println("\n1 - Cadastrar Navio");
                         System.out.println("2 - Listar Navios");
                         System.out.println("3 - Consultar Navio pelo codigo");
@@ -47,7 +55,7 @@ public class ProjFinal {
                                 System.out.println("A entrada deve ser um inteiro de 1 a 6!");
                             }
                         }
-                        
+                           
 //========================submenu de Navio========================
                         switch(decisao){
                             case 1:
@@ -256,7 +264,7 @@ public class ProjFinal {
                                 opcao = false;    
                                 break;  
                             default:
-                                
+                                System.out.println("Erro");
                                 break;  
                         }
                     }
@@ -374,7 +382,7 @@ public class ProjFinal {
                                 opcao = false;
                                 break;  
                             default:
-
+                                System.out.println("Erro");
                                 break;  
                         }
                     }
@@ -389,7 +397,16 @@ public class ProjFinal {
             System.out.println("\nDeseja editar outro tipo de embarcacao?");
             System.out.println("1 - Sim");
             System.out.println("2 - Nao");
-            decisao = Integer.parseInt(input.entDados(""));
+
+            while(true){
+                try{
+                    decisao = Integer.parseInt(input.entDados(""));
+                    break;
+                }
+                catch(NumberFormatException nfe){
+                    System.out.println("A entrada deve ser um inteiro de 1 a 2!");
+                }
+            }
 
             if(decisao == 1)
                 continue;

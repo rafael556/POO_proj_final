@@ -1,7 +1,7 @@
 //Aluno: Rafael Cruz - RA: 2266261
 import java.lang.Math;
 
-public class Veleiro extends Navio implements Vela, Autonomia{
+public final class Veleiro extends Navio implements Vela, Autonomia{
 
     //atributos
     private int velas;

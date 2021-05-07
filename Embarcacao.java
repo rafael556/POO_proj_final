@@ -13,7 +13,6 @@ public abstract class Embarcacao{
 
     //metodos
 
-    
     public String nomeEmbarc(){
         return "Navio "+nome;
     }

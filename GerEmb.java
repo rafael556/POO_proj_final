@@ -13,7 +13,7 @@ public class GerEmb {
     private JetSki jetski;
 
 
-//==========================Navio============================
+//==========================Navio=============================================================
 
     public Navio cadastroNavio(Navio navio){
     
@@ -96,13 +96,16 @@ public class GerEmb {
         return navio;
     }
     
-    //===========listagem de todos os navios===============
+    //===========listagem de todos os navios=============================================================
     public void listaNavio(){
         for(int i = 0; i < bdNav.size(); i++)
             bdNav.get(i).getNavio();
+
+        if(bdNav.size() == 0)
+            System.out.println("Lista Vazia");
     }
 
-    //==========consulta a partir do codigo=================
+    //==========consulta a partir do codigo============================================================
     
     public Navio ConsNavio(Navio navio){
        for(int i = 0; i < bdNav.size(); i++){
@@ -191,7 +194,7 @@ public class GerEmb {
             }
         }
     }
-//============================Veleiro=======================
+//============================Veleiro=================================================================
 
     public Veleiro cadVeleiro(Veleiro veleiro){
 
@@ -295,14 +298,17 @@ public class GerEmb {
         return veleiro;
     }
 
-    //===============Listagem de Veleiros ==================
+    //===============Listagem de Veleiros ========================================================
 
     public void listaVeleiro(){
         for(int i = 0; i < bdVel.size(); i++)
             bdVel.get(i).getVeleiro();
+        
+            if(bdVel.size() == 0)
+            System.out.println("Lista Vazia");
     }
 
-//=================Consulta de Veleiro=====================
+//=================Consulta de Veleiro=============================================================
     
     public Veleiro ConsVeleiro(Veleiro veleiro){
         for(int i = 0 ; i < bdVel.size(); i++){
@@ -312,7 +318,7 @@ public class GerEmb {
         return null;
     }
 
-//==================Remoção de Veleiro=====================    
+//==================Remoção de Veleiro==================================================================
     
     public void RemoveVeleiro(Veleiro veleiro){
         bdVel.remove(veleiro);
@@ -407,7 +413,7 @@ public class GerEmb {
         }
     }
 
-//=====================JetSki================================
+//=====================JetSki==================================================================================
 
     public JetSki cadJetSki(JetSki jetski){
 
@@ -488,6 +494,9 @@ public class GerEmb {
     public void listaJetSki(){
         for(int i = 0; i < bdJet.size(); i++)
             bdJet.get(i).getJetSki();
+
+            if(bdJet.size() == 0)
+            System.out.println("Lista Vazia");
     }
 
 //===============Consulta de JetSki==========

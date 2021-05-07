@@ -1,11 +1,11 @@
 //Aluno: Rafael Cruz - RA: 2266261
 
-public class JetSki extends Embarcacao implements Autonomia{
+public final class JetSki extends Embarcacao implements Autonomia{
     
     //atributos
     private double potencia;
     private double eficiencia; //combustivel/hora
-    Leitura input = new Leitura();
+    private Leitura input = new Leitura();
 
     //métodos
     public double autonomia(){ 

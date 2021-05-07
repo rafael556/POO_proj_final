@@ -31,6 +31,8 @@ public class Navio extends Embarcacao {
     }
 
     public void getNavio(){
+
+        System.out.println("\nCodigo: "+getCodigo());
         System.out.println("\nNome: "+nomeEmbarc());
         System.out.println("Tipo: "+getTipo());
         System.out.println("Tripulacao: "+getTripulacao());

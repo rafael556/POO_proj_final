@@ -22,6 +22,7 @@ public class Veleiro extends Navio implements Vela, Autonomia{
     }
 
     public void getVeleiro(){
+        System.out.println("\nCodigo: "+getCodigo());
         System.out.println("\nNome: "+nomeEmbarc());
         System.out.println("Tipo: "+getTipo());
         System.out.println("Tripulacao: "+getTripulacao());
@@ -30,93 +31,6 @@ public class Veleiro extends Navio implements Vela, Autonomia{
         System.out.println("Numero de velas: "+getVelas());
         System.out.println("Lucro com ingressos: R$ "+ingresso());
         System.out.println("Autonomia: "+autonomia()+" dias");
-    }
-
-    public Veleiro setVeleiro(Veleiro veleiro){
-        try{
-            veleiro.setNome(input.entDados("\nDigite o nome do veleiro:"));
-        }
-        catch(BlankStringException bse){
-            bse.impBlank();
-            bse.consertaNome(veleiro);
-        }
-        
-        try{
-            veleiro.setTipo(input.entDados("Digite o tipo do veleiro:"));
-        }
-        catch(BlankStringException bse){
-            bse.impBlank();
-            bse.consertaTipo(veleiro);
-        }
-
-        while(true){
-            try {
-                veleiro.setTripulacao(Integer.parseInt(input.entDados("Digite o numero de tripulantes:")));
-                break;
-            }
-            catch(NumNegatException nne){
-                nne.impNNE();
-            }
-            catch(NumberFormatException nfe){
-                System.out.println("\nDigite um numero");
-            }
-        }
-
-        while(true){
-            try {
-                veleiro.setComprimento(Double.parseDouble(input.entDados("Digite o comprimento do veleiro em metros:")));
-                break;
-            }
-            catch(NumNegatException nne){
-                nne.impNNE();
-            }
-            catch(NumberFormatException nfe){
-                System.out.println("\nDigite um numero");
-            }
-        }
-
-        while(true){
-            try {
-                veleiro.setMastros(Integer.parseInt(input.entDados("Digite o numero de mastros:")));
-                break;
-            }
-            catch(NumNegatException nne){
-                nne.impNNE();
-            }
-            catch(NumberFormatException nfe){
-                System.out.println("\nDigite um numero");
-            }
-        }
-
-        while(true){
-            try {
-                veleiro.setVelas(Integer.parseInt(input.entDados("Digite o numero de velas:")));
-                break;
-            }
-            catch(NumNegatException nne){
-                nne.impNNE();
-            }
-            catch(NumberFormatException nfe){
-                System.out.println("\nDigite um numero");
-            }
-        }
-
-        while(true){
-            try {
-                veleiro.setCapacidade(Double.parseDouble(input.entDados("Digite a quantidade de suprimentos em kg")));
-                break;
-            }
-            catch(NumNegatException nne){
-                nne.impNNE();
-            }
-            catch(SupCapacidade SPC){
-                SPC.impSCP();
-            }
-            catch(NumberFormatException nfe){
-                System.out.println("\nDigite um numero");
-            }
-        }
-        return veleiro;
     }
 
     //getters

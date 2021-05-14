@@ -1,6 +1,4 @@
 //Aluno: Rafael Cruz - RA: 2266261
-import java.util.List;
-import java.util.ArrayList;
 
 public abstract class Embarcacao{
     
@@ -10,7 +8,6 @@ public abstract class Embarcacao{
     private String tipo;
     protected int tripulacao;
     protected double capacidade; //combustivel ou suprimentos
-    Leitura input = new Leitura();
 
     //metodos
 
@@ -48,7 +45,7 @@ public abstract class Embarcacao{
     }
 
     public void setNome(String nome) throws BlankStringException{
-        if(nome.isEmpty() || nome.equals(null)){
+        if(nome.isEmpty()){
             throw new BlankStringException();
         }
         else
@@ -56,7 +53,7 @@ public abstract class Embarcacao{
     }
 
     public final void setTipo(String tipo) throws BlankStringException{
-        if(tipo.isEmpty() || tipo.equals(null)){
+        if(tipo.isEmpty()){
             throw new BlankStringException();
         }
         else

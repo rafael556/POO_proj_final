@@ -1,8 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-
 //Aluno: Rafael Cruz - RA: 2266261
-
 public class Navio extends Embarcacao {
     
     //atributos
@@ -50,7 +46,7 @@ public class Navio extends Embarcacao {
     }
 
     public void setPropulsao(String propulsao) throws BlankStringException{
-        if(propulsao.isEmpty() || propulsao.equals(null)){
+        if(propulsao.isEmpty()){
             throw new BlankStringException();
         }
         this.propulsao = propulsao;

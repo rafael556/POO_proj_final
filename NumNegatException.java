@@ -1,8 +1,11 @@
 //Aluno: Rafael Cruz - RA: 2266261
 
+import javax.swing.JOptionPane;
+
+
 public class NumNegatException extends Exception {
     
     public void impNNE(){
-        System.out.println("\nO numero deve ser positivo");
+        JOptionPane.showMessageDialog(null, "Escreva um numero positivo", "Erro", JOptionPane.ERROR_MESSAGE);
     }  
 }

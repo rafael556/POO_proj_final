@@ -1,5 +1,4 @@
 //Aluno: Rafael Cruz - RA: 2266261
-import java.lang.Math;
 
 public final class Veleiro extends Navio implements Vela, Autonomia{
 

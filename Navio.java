@@ -10,8 +10,6 @@ public class Navio extends Embarcacao {
     private String propulsao;
     private double comprimento;
     
-    Leitura input = new Leitura();
-
     //métodos
     public String nomeEmbarc(){
         return "H.M.S. "+getNome();

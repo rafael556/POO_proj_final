@@ -5,7 +5,6 @@ public final class JetSki extends Embarcacao implements Autonomia{
     //atributos
     private double potencia;
     private double eficiencia; //combustivel/hora
-    private Leitura input = new Leitura();
 
     //métodos
     public double autonomia(){ 

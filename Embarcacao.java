@@ -10,6 +10,7 @@ public abstract class Embarcacao{
     private String tipo;
     protected int tripulacao;
     protected double capacidade; //combustivel ou suprimentos
+    Leitura input = new Leitura();
 
     //metodos
 

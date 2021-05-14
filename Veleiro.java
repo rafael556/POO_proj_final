@@ -6,7 +6,6 @@ public final class Veleiro extends Navio implements Vela, Autonomia{
     //atributos
     private int velas;
     private int mastros;
-    Leitura input = new Leitura();
 
     //metodos
     public double ingresso(){
